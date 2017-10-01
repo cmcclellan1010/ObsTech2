@@ -40,6 +40,7 @@ for i in range(4):
 
     # READ NOISE 3: Find mean, median, and RMS of RMS array
     npix = data_list[i][1]
+    print npix
     print "i = ", i
     print "Mean: ", np.mean(RMS)
     print "Median: ", np.median(RMS)
@@ -145,7 +146,12 @@ plt.show()
 
 exptime = [100, 1000, 10000, 100000]
 means = [mean1, mean2, mean3, mean4]
-err = [stddev1, stddev2, stddev3, stddev4]
+stddevs = [stddev1, stddev2, stddev3, stddev4]
+
+err = []
+for item in stddevs:
+    err.append(stddevs[stddevs.index(item)]/390150.**0.5)
+print err
 
 l_init = models.Linear1D(slope=0, intercept=956)
 fit_l = fitting.LinearLSQFitter()
@@ -157,7 +163,7 @@ fig = plt.figure()
 ax = fig.add_subplot(111)
 ax.annotate('Slope: '+str("%.2E" % slope), xy=(20000, 11))
 ax.annotate('Y-Intercept: '+str("%.2f" % intercept), xy=(20000, 10.5))
-plt.errorbar(exptime, means, yerr=err, fmt='ko', label='Mean Read Noise (stddev in error bars)')
+plt.errorbar(exptime, means, yerr=err, fmt='none', ecolor='k', label='Mean Read Noise')
 plt.plot(exptime, l(exptime), 'limegreen', label='Linear fit')
 plt.xlabel('Exposure time (ms)')
 plt.ylabel('Mean Read Noise (DNs)')
