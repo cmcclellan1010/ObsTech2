@@ -25,12 +25,11 @@ def construct_data_array(filename_prefix, n_images):
 # READ NOISE 1, 2: Calculate RMS array
 
 data_100ms = construct_data_array('dark_100ms_', 18)
-data_200ms = construct_data_array('dark_1000ms_', 6)
-data_1000ms = construct_data_array('dark_1e4ms_', 6)
-data_1e4ms = construct_data_array('dark_1e5ms_', 3)
+data_1000ms = construct_data_array('dark_1000ms_', 6)
+data_1e4ms = construct_data_array('dark_1e4ms_', 6)
+data_1e5ms = construct_data_array('dark_1e5ms_', 3)
 
-data_list = [data_100ms, data_200ms, data_1000ms, data_1e4ms]
-
+data_list = [data_100ms, data_1000ms, data_1e4ms, data_1e5ms]
 final_RMS_array = []
 for i in range(4):
     average_of_square = np.mean(data_list[i][0]**2, axis=0)
