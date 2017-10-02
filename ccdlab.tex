@@ -1,0 +1,49 @@
+\documentclass{aastex6}
+
+\begin{document}
+\title{CCD Laboratory Write-up}
+\author{B. Connor McClellan, Julieanna Bacon, John Michael Della Costa}
+\affil{University of Florida}
+\email{cmcclellan1010@ufl.edu}
+\and
+
+
+\begin{abstract}
+This lab report outlines the procedures and results of analyzing dark-frame and flat-frame images on a CCD to experimentally measure read noise, dark current, gain, and linearity. I reduce my data in Python 2.7. The objective of the lab is to understand the basic operating principles of a CCD. A large component of this experiment and the following analysis focuses on quantifying error. It is crucial to understand the misgivings of the instrument one is working with before pointing it at actual targets; then, not only can one optimally configure the instrument to acquire the best data possible, but also its error will be well-defined and easily corrected for.
+\end{abstract}
+
+
+\section{EXPERIMENT SETUP}
+
+
+Our setup consists of a "dark room" made from two large wooden platforms standing on end, with a heavy, opaque cloth laid on top. At the far end, a piece of flat white paper is suspended vertically on a metal mount. The SBIG CCD, fitted with a Nikon AF NIKKOR 70-300mm lens with a 3-D printed adapter, sits in the middle of the rig with the field of view centered on and perpendicular to the sheet of paper. A large laptop is placed at the opposite end, with the screen casting light from just above the CCD toward the sheet of paper. When we take data, the opaque cloth is set over the entire rig and remains in the same place for the duration of imaging, to preserve consistency in what small amount of light manages to leak through from the outside environment. A small flap on one side is lifted to access the camera, cover the lens, and alter the laptop screen brightness as needed for the experiment. A second laptop is wired to the CCD, and operated from outside the cloth. This laptop, running CCDOps, controls the exposure time, number of images acquired, filters used, and type of exposure.
+
+
+\section{MEASURING THE READ NOISE}
+
+
+\subsection{Objective}
+In this section, I quantify the read noise of the detector using 18 0.1-second dark exposures. I then use the same method to find the read noise for increasing exposure times, using 6 1s images, 6 10s images, and 3 100s images.The overall goal of this section is to, first, measure the read noise of the detector accurately, and second, prove that exposure time has no effect on the read noise of the detector. Since read noise is only introduced when the CCD is read out, it only happens once per exposure and should be constant no matter how long the exposure is. To prove this, a linear fit of the read noises at each exposure time should have no appreciable slope; that is, there should be very little correlation between exposure time and read noise.
+
+\subsection{Method}
+I start by loading in the 18 0.1-second images into a 3-dimensional numpy array. Two of the axes are the dimensions of the image, and the third axis is the dimension along which the 18 images are stacked. I then calculate the RMS of the 3-dimensional array along the third axis, using
+
+\begin{equation} \label{eq:1}
+RMS = \sqrt{|\langle x^2 \rangle-\langle x \rangle^2|}
+\end{equation}
+
+This returns a new 2-dimensional array containing the RMS of each pixel in that pixel's location. As stated in the lab manual, the median or mean of this array should be the average read noise of the CCD. The associated uncertainty is
+
+\begin{equation} \label{eq:2}
+RMSE = \frac{\sigma}{\sqrt{n_{pix}}}
+\end{equation}
+
+where $ \sigma $ is the RMS of the array and $ n_pix $ is the number of pixels in the CCD. For any set of images in this lab, I will use this definition to calculate the uncertainty of the average of those images.
+\par
+An alternate method of measuring the read noise involves plotting the data numbers \(DN\) of all the pixels on a histogram, and fitting a Gaussian to the histogram \(REFERENCE FIGURE\). The central peak of the histogram returns the average read noise of the CCD, and the Gaussian fit's $ \sigma $ describes the statistical spread, which can then be converted to an uncertainty using equation \ref{eq:2}.
+
+\subsection{Results}
+
+\subsection{Summary}
+
+\end{document}
