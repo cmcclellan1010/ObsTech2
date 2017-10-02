@@ -144,7 +144,7 @@ ax4.set_title('100s Dark')
 plt.tight_layout()
 plt.show()
 
-exptime = [100, 1000, 10000, 100000]
+exptime = [0.1, 1, 10, 100]
 means = [mean1, mean2, mean3, mean4]
 stddevs = [stddev1, stddev2, stddev3, stddev4]
 
@@ -161,13 +161,13 @@ print "Slope, Intercept: ", slope, intercept
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
-ax.annotate('Slope: '+str("%.2E" % slope), xy=(20000, 11))
-ax.annotate('Y-Intercept: '+str("%.2f" % intercept), xy=(20000, 10.5))
-plt.errorbar(exptime, means, yerr=err, fmt='none', ecolor='k', label='Mean Read Noise')
+ax.annotate('Slope: '+str("%.2E" % slope+' DN/s'), xy=(20, 11))
+ax.annotate('Y-Intercept: '+str("%.2f" % intercept)+' DN', xy=(20, 10.5))
+plt.errorbar(exptime, means, yerr=err, fmt='ko', ecolor='k', label='Mean Read Noise')
 plt.plot(exptime, l(exptime), 'limegreen', label='Linear fit')
-plt.xlabel('Exposure time (ms)')
-plt.ylabel('Mean Read Noise (DNs)')
-plt.xlim(-10000, 110000)
+plt.xlabel('Exposure time (s)')
+plt.ylabel('Mean Read Noise (DN)')
+plt.xlim(-10, 110)
 plt.tight_layout()
 plt.legend(loc=3)
 plt.grid(True)

@@ -1,7 +1,6 @@
 from astropy.io import fits
 import numpy as np
 import matplotlib.pyplot as plt
-from astropy.modeling import models, fitting
 
 
 def rms(x):
@@ -46,13 +45,6 @@ print y
 print yerr
 print x
 print xerr
-
-# l_init = models.Linear1D(slope=1, intercept=1)
-# fit_l = fitting.LinearLSQFitter()
-# l = fit_l(l_init, x, y)
-# slope = l.slope[0]
-# print "Slope: ", slope
-# print l
 
 p, V = np.polyfit(x, y, 1, cov=True)
 print "Slope: ", p[0]
