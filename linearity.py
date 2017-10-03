@@ -38,9 +38,13 @@ data_list = [flat_100ms, flat_500ms, flat_1000ms, flat_3000ms, flat_1e4ms,
 exptimes = [.1, .5, 1, 3, 10, 30, 60, 100, 120, 150, 200]
 signal = []
 signal_err = []
-for data in data_list:
+for i in range(len(data_list)):
+    print i
+    data = data_list[i]
     mean_signal = np.mean(np.mean(data, axis=0))
     mean_err = rms(np.mean(data, axis=0))/390150.**0.5
+    print "Mean signal: ", "%.3f" % mean_signal
+    print "Signal error: ", "%.5f" % mean_err
     signal.append(mean_signal)
     signal_err.append(mean_err)
 
@@ -63,9 +67,13 @@ data_list = [flat_low_1000ms, flat_low_3000ms, flat_low_1e4ms, flat_low_3e4ms,
 low_exptimes = [1, 3, 10, 30, 60, 100, 120]
 low_signal = []
 low_signal_err = []
-for data in data_list:
+for i in range(len(data_list)):
+    print i
+    data = data_list[i]
     low_mean_signal = np.mean(np.mean(data, axis=0))
     low_mean_err = rms(np.mean(data, axis=0))/390150.**0.5
+    print "Low mean signal: ", "%.3f" % low_mean_signal
+    print "Low signal error: ", "%.5f" % low_mean_err
     low_signal.append(low_mean_signal)
     low_signal_err.append(low_mean_err)
 
