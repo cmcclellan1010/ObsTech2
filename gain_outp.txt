@@ -1,43 +1,50 @@
 0
-Variance:  84.222
-Variance Error:  0.237197381296
-Mean Signal:  1019.000
-Signal error:  0.0254697926072
+Variance:  130.895
+Variance Error:  0.237
+Mean Signal:  1021.540
+Signal error:  0.025
 1
-Variance:  150.889
-Variance Error:  0.379761834571
-Mean Signal:  1216.667
-Signal error:  0.0242273068671
+Variance:  224.919
+Variance Error:  0.380
+Mean Signal:  1217.387
+Signal error:  0.024
+dV/dS:  0.480
 2
-Variance:  234.889
-Variance Error:  0.56301638457
-Mean Signal:  1469.667
-Signal error:  0.0247812958684
+Variance:  343.435
+Variance Error:  0.563
+Mean Signal:  1469.541
+Signal error:  0.025
+dV/dS:  0.470
 3
-Variance:  555.556
-Variance Error:  1.28735118751
-Mean Signal:  2490.667
-Signal error:  0.0452919611229
+Variance:  801.274
+Variance Error:  1.287
+Mean Signal:  2491.064
+Signal error:  0.045
+dV/dS:  0.448
 4
-Variance:  1672.667
-Variance Error:  5.48072930693
-Mean Signal:  6071.667
-Signal error:  0.154329589257
+Variance:  2425.975
+Variance Error:  5.481
+Mean Signal:  6071.936
+Signal error:  0.154
+dV/dS:  0.454
 5
-Variance:  5028.667
-Variance Error:  11.5508064455
-Mean Signal:  16327.333
-Signal error:  0.479599076501
+Variance:  7246.191
+Variance Error:  11.551
+Mean Signal:  16329.596
+Signal error:  0.480
+dV/dS:  0.470
 6
-Variance:  9848.000
-Variance Error:  22.8789743359
-Mean Signal:  31554.000
-Signal error:  0.966835503455
+Variance:  14213.668
+Variance Error:  22.879
+Mean Signal:  31561.724
+Signal error:  0.967
+dV/dS:  0.457
 7
-Variance:  18434.667
-Variance Error:  42.6264895749
-Mean Signal:  61898.000
-Signal error:  1.8889723723
+Variance:  26614.934
+Variance Error:  42.626
+Mean Signal:  61929.823
+Signal error:  1.889
+dV/dS:  0.408
 
-Slope:  0.303930788358
-Error in slope:  0.00462674577927
+Slope:  0.438444859591
+Error in slope:  0.00660177576819

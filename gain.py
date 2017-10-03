@@ -37,17 +37,21 @@ for prefix in prefix_list:
     variance = np.absolute(average_of_square - square_of_average)
     variance_err = rms(variance)/390150.**0.5
 
-    y.append(np.median(variance))
+    y.append(np.mean(variance))
     yerr.append(variance_err)
-    x.append(np.median(mean_array))
+    x.append(np.mean(mean_array))
     xerr.append(mean_err)
 
 for i in range(len(prefix_list)):
     print i
     print "Variance: ", '%.3f' % y[i]
-    print "Variance Error: ", yerr[i]
+    print "Variance Error: ", '%.3f' % yerr[i]
     print "Mean Signal: ", '%.3f' % x[i]
-    print "Signal error: ", xerr[i]
+    print "Signal error: ", '%.3f' % xerr[i]
+    if i == 0:
+        pass
+    else:
+        print "dV/dS: ", '%.3f' % ((y[i]-y[i-1])/(x[i]-x[i-1]))
 
 p, V = np.polyfit(x, y, 1, cov=True)
 print "\nSlope: ", p[0]
