@@ -18,7 +18,8 @@ def construct_data_array(filename_prefix, n_images):
     da = np.array(da, dtype=float)
     return da
 
-prefix_list = ['flat_1e4ms_', 'flat_1e5ms_', 'flat_3e4ms_', 'flat_6e4ms_', 'flat_12e4ms_']
+prefix_list = ['flat_100ms_', 'flat_500ms_', 'flat_1000ms_', 'flat_3000ms_', 'flat_1e4ms_', 'flat_3e4ms_',
+               'flat_6e4ms_', 'flat_12e4ms_']
 y = []
 x = []
 yerr = []
@@ -41,13 +42,15 @@ for prefix in prefix_list:
     x.append(np.median(mean_array))
     xerr.append(mean_err)
 
-print y
-print yerr
-print x
-print xerr
+for i in range(len(prefix_list)):
+    print i
+    print "Variance: ", '%.3f' % y[i]
+    print "Variance Error: ", yerr[i]
+    print "Mean Signal: ", '%.3f' % x[i]
+    print "Signal error: ", xerr[i]
 
 p, V = np.polyfit(x, y, 1, cov=True)
-print "Slope: ", p[0]
+print "\nSlope: ", p[0]
 print "Error in slope: ", np.sqrt(V[0][0])
 
 yfit = []
@@ -58,6 +61,8 @@ for item in x:
 fig = plt.figure()
 ax = fig.add_subplot(111)
 plt.errorbar(x, y, xerr=xerr, yerr=yerr, fmt='none', ecolor='b')
+ax.annotate('Slope: '+str("%.2E" % p[0])+' ADU/e-', xy=(22000, 5000))
+ax.annotate("Error in slope: "+str("%.2E" % np.sqrt(V[0][0]))+' ADU/e-', xy=(22000, 4000))
 plt.plot(x, yfit, 'r')
 plt.xlabel('Signal (e-)')
 plt.ylabel('Variance (RMS^2)')
