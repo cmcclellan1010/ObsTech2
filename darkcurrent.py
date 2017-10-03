@@ -54,6 +54,7 @@ for filename in prefix_list:
     i = prefix_list.index(filename)
     data = np.ndarray.flatten(construct_data_array(filename, 1)[0] - master_bias)
     result = plot_hist_gauss(data, 75, 45000, i, 13.6, filename+'001 (Bias-subtracted)')
+    print "Numpy Mean: ", np.mean(data)
     final_mean.append(result[0])
     final_stddev.append(result[1]/390150.**0.5)
 
