@@ -21,7 +21,6 @@ def construct_data_array(filename_prefix, n_images):
     n_pixels = shape[1] * shape[2]
     return da, n_pixels
 
-
 # READ NOISE 1, 2: Calculate RMS array
 
 data_100ms = construct_data_array('dark_100ms_', 18)
@@ -62,9 +61,10 @@ fit_g = fitting.LevMarLSQFitter()
 g = fit_g(g_init, bincenters, n)
 
 mean1, stddev1 = g.mean[0], g.stddev[0]
-print 'i = 1'
+print 'i = 0'
 print "Mean: ", mean1
 print "Stddev: ", stddev1
+print "Sigma: ", stddev1/np.sqrt(390150.)
 
 ax1.plot(bincenters, g(bincenters), 'r--', linewidth=3)
 ax1.set_xlabel('Pixel-wise RMS of DNs')
@@ -84,9 +84,10 @@ fit_g = fitting.LevMarLSQFitter()
 g = fit_g(g_init, bincenters, n)
 
 mean2, stddev2 = g.mean[0], g.stddev[0]
-print 'i = 2'
+print 'i = 1'
 print "Mean: ", mean2
 print "Stddev: ", stddev2
+print "Sigma: ", stddev2/np.sqrt(390150.)
 
 ax2.plot(bincenters, g(bincenters), 'r--', linewidth=3)
 ax2.set_xlabel('Pixel-wise RMS of DNs')
@@ -106,9 +107,10 @@ fit_g = fitting.LevMarLSQFitter()
 g = fit_g(g_init, bincenters, n)
 
 mean3, stddev3 = g.mean[0], g.stddev[0]
-print 'i = 3'
+print 'i = 2'
 print "Mean: ", mean3
 print "Stddev: ", stddev3
+print "Sigma: ", stddev3/np.sqrt(390150.)
 
 ax3.plot(bincenters, g(bincenters), 'r--', linewidth=3)
 ax3.set_xlabel('Pixel-wise RMS of DNs')
@@ -128,9 +130,10 @@ fit_g = fitting.LevMarLSQFitter()
 g = fit_g(g_init, bincenters, n)
 
 mean4, stddev4 = g.mean[0], g.stddev[0]
-print 'i = 4'
+print 'i = 3'
 print "Mean: ", mean4
 print "Stddev: ", stddev4
+print "Sigma: ", stddev4/np.sqrt(390150.)
 
 ax4.plot(bincenters, g(bincenters), 'r--', linewidth=3)
 ax4.set_xlabel('Pixel-wise RMS of DNs')
@@ -141,7 +144,8 @@ ax4.grid(True)
 ax4.set_title('100s Dark')
 
 plt.tight_layout()
-plt.show()
+plt.savefig('readnoise_histograms.eps', format='eps', dpi=1000)
+
 
 exptime = [0.1, 1, 10, 100]
 means = [mean1, mean2, mean3, mean4]
