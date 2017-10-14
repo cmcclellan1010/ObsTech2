@@ -1,0 +1,8 @@
+Telescope, CCD Information:
+
+    Focal length:       3.556 m
+        Diameter:       0.356 m
+             f/#:       F/10
+      Pixel size:       4.4 microns
+     Plate scale:       0.2552 "/pixel
+      Array size:       
