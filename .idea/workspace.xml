@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1cb6107-d4c4-408d-a019-23d7d6d7f077" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ccdlab.pdf" afterPath="$PROJECT_DIR$/ccdlab/ccdlab.pdf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dDNdt.png" afterPath="$PROJECT_DIR$/ccdlab/dDNdt.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dark_current_125s.png" afterPath="$PROJECT_DIR$/ccdlab/dark_current_125s.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dark_current_1s.png" afterPath="$PROJECT_DIR$/ccdlab/dark_current_1s.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dark_current_25s.png" afterPath="$PROJECT_DIR$/ccdlab/dark_current_25s.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dark_current_5s.png" afterPath="$PROJECT_DIR$/ccdlab/dark_current_5s.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dark_current_6e5ms.png" afterPath="$PROJECT_DIR$/ccdlab/dark_current_6e5ms.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/darkcurrent.py" afterPath="$PROJECT_DIR$/ccdlab/darkcurrent.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/darkcurrent_outp.txt" afterPath="$PROJECT_DIR$/ccdlab/darkcurrent_outp.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/gain.png" afterPath="$PROJECT_DIR$/ccdlab/gain.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/gain.py" afterPath="$PROJECT_DIR$/ccdlab/gain.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/gain_outp.txt" afterPath="$PROJECT_DIR$/ccdlab/gain_outp.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/linearity.png" afterPath="$PROJECT_DIR$/ccdlab/linearity.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/linearity.py" afterPath="$PROJECT_DIR$/ccdlab/linearity.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/linearity_outp.txt" afterPath="$PROJECT_DIR$/ccdlab/linearity_outp.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/readnoise.py" afterPath="$PROJECT_DIR$/ccdlab/readnoise.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/readnoise_histograms.eps" afterPath="$PROJECT_DIR$/ccdlab/readnoise_histograms.eps" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/readnoise_histograms.png" afterPath="$PROJECT_DIR$/ccdlab/readnoise_histograms.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/readnoise_outp.txt" afterPath="$PROJECT_DIR$/ccdlab/readnoise_outp.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/readnoise_timedependence.png" afterPath="$PROJECT_DIR$/ccdlab/readnoise_timedependence.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -50,7 +31,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="observing_prep.txt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="observing_prep.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/eikenresearch/observing_prep.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
@@ -60,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ccd_info.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ccd_info.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eikenresearch/ccd_info.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+            <state relative-caret-position="170">
+              <caret line="11" column="37" lean-forward="false" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -115,10 +96,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="-4" />
-    <option name="width" value="1920" />
-    <option name="height" value="1021" />
+  <component name="ProjectFrameBounds" extendedState="4">
+    <option name="x" value="960" />
+    <option name="y" value="24" />
+    <option name="width" value="960" />
+    <option name="height" value="993" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -138,8 +120,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -161,7 +143,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AST4930" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../discord_project" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="TEXT" />
   </component>
@@ -384,7 +366,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-4" width="1920" height="1021" extended-state="6" />
+    <frame x="960" y="24" width="960" height="993" extended-state="4" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16458334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -633,21 +615,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/eikenresearch/ccd_info.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="11" column="37" lean-forward="false" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/eikenresearch/observing_prep.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="24" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eikenresearch/ccd_info.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
