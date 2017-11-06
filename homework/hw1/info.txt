@@ -1,0 +1,28 @@
+Gaussian fit of histogram:
+
+Mean:    1.00004323925
+Stddev:  0.00656695389146
+
+Flat data for 1102:
+
+master flat median:    9648.0
+master flat mean:      9653.01846982
+master flat max value: 10171.0
+master flat min value: 7517.0
+
+normalized master flat median:    1.0
+normalized master flat mean:      1.00052015649
+normalized master flat max value: 1.05420812604
+normalized master flat min value: 0.779125207297
+
+Flat data for 1012:
+
+master flat median:    10995.0
+master flat mean:      11001.3715827
+master flat max value: 11561.0
+master flat min value: 8626.0
+
+normalized master flat median:    1.0
+normalized master flat mean:      1.0005794982
+normalized master flat max value: 1.05147794452
+normalized master flat min value: 0.784538426558
