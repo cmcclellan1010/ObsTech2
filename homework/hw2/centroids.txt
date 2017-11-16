@@ -1,0 +1,37 @@
+Blue laser
+Centroid of feature:  1565.24764259
+Wavelength: 405
+
+Green laser
+Centroid of feature:  410.762735969
+Wavelength: 532
+
+helium_02s
+Centroid of feature 1:  712.469086748
+Wavelength: 501
+Centroid of feature 2:  804.11082494
+Wavelength: 492
+Centroid of feature 3:  1008.08526837
+Wavelength: 471
+Centroid of feature 4:  1243.67810525
+Wavelength: 447
+
+krypton_005s
+Centroid of feature 1:  170.751184558
+Wavelength: 557.03
+Centroid of feature 2:  1392.43596457
+Wavelength: 431.96
+
+mercury
+Centroid of feature 1:  278.6280747
+Wavelength: 546.07
+Centroid of feature 2:  1354.78143834
+Wavelength: 435.84
+
+neon_06s
+Centroid of feature 1:  336.45902757
+Wavelength: 540.06
+Centroid of feature 2: 650.552477104
+Wavelength: 508.04
+Centroid of feature 2: 691.713891716
+Wavelength: 503.78
