@@ -18,7 +18,7 @@ warnings.filterwarnings('ignore')
 # table[i][2] - y position
 # table[i][3] - flux value
 
-cwd = "/home/connor/Desktop/observing_project/databank/"
+cwd = "/home/connor/programming/PycharmProjects/AST4723C/observing_project/databank/aligned/"
 n_stars = 3
 filter = 'r'
 
@@ -32,7 +32,7 @@ def load_fits(filename):
 
 def search_names(id1):
     filename_list = []
-    for filename in list(set().union(glob(cwd+'*.FIT'), glob(cwd+'*.fit'))):
+    for filename in glob(cwd+'*.fit'):
         if '_'+id1+'_' in filename:
             filename_list.append(filename)
     return filename_list, id1
@@ -122,13 +122,21 @@ def plot_geometry(data, star_table):
     for i in range(0, np.shape(star_table)[0]):
         x = np.float64(star_table[i][1])
         y = np.float64(star_table[i][2])
-        ax.scatter(x, y, s=80, facecolors='none', edgecolors='r')
-    plt.show()
+        ax.scatter(x, y, s=200, facecolors='none', edgecolors='r', linewidths=2, alpha=0.75)
+        ax.scatter(x, y, s=600, facecolors='none', edgecolors='r', linewidths=0.5, alpha=0.75)
+    plt.tight_layout()
+    plt.show(block=False)
+    plt.pause(.5)
+    plt.close()
 
 
 def star_find(data, fwhm=10., threshold=200.):
     bkg_sigma = mad_std(data)
-    daofind = DAOStarFinder(fwhm=fwhm, threshold=threshold * bkg_sigma)
+    if bkg_sigma == 0.0:
+        thresh = 1000
+    else:
+        thresh = threshold*bkg_sigma
+    daofind = DAOStarFinder(fwhm=fwhm, threshold=thresh)
     sources = daofind(data)
     return sources
 
@@ -170,15 +178,17 @@ def ap_phot(sources, data, source_r=6., sky_in=15, sky_out=20, plot=False):
     return sky_subtracted_source
 
 
-def extract_time(filename, filter_id):
+def extract_time(filename, set_number, filter_id):
     # Extract the date from the filename
+    print "Filename: ", filename
     month = ntpath.basename(filename)[2:4]
     day = ntpath.basename(filename)[4:6]
     year = '2017'
 
     # Extract the time from the time file
-    textfile = "a_" + month + day + "_0_" + filter_id + "_time"
+    textfile = "a_" + month + day + "_"+set_number+"_" + filter_id + "_time"
     txt = str(np.loadtxt(cwd + textfile, dtype='string'))
+    print "Time loaded: ", txt
     hh = txt[0:2]
     mm = txt[3:5]
 
@@ -188,11 +198,13 @@ def extract_time(filename, filter_id):
                                        "%Y-%m-%dT%H:%M:%S")
     local_dt = local.localize(naive, is_dst=None)
     utc_dt = local_dt.astimezone(pytz.utc)
+    print "UTC time: ", utc_dt
 
     # Build MJD from time and date information
     time_date = utc_dt.strftime('%Y-%m-%dT%H:%M:%S')
     t = Time(time_date, format='isot', scale='utc')
     MJD = t.mjd
+    print "MJD: ", MJD
     return MJD
 
 
@@ -201,6 +213,8 @@ filesearch = search_names(filter)
 
 filenames = filesearch[0]
 filter_id = filesearch[1]
+
+print "Found ", len(filenames), " filenames."
 
 # Remove the first filename from the list, make sure it's set 0
 first_filename = ''
@@ -214,7 +228,7 @@ da = fits.open(first_filename)[0].data
 
 # Photometer the first fits file
 sources = star_find(da)
-photometered = ap_phot(sources, da)
+photometered = ap_phot(sources, da, plot=True)
 print photometered
 
 # Collect mouse coordinates on first image
@@ -236,7 +250,7 @@ MJDs = []
 cut_startable = select_stars_closest(mouse_coords, photometered)
 
 # Obtain MJD for the first file
-MJD = extract_time(first_filename, filter_id)
+MJD = extract_time(first_filename, '0', filter_id)
 
 # Add relevant information to fits file arrays
 fits_filenames.append(ntpath.basename(first_filename))
@@ -246,29 +260,41 @@ star3_apsums.append(cut_startable[2][3])
 MJDs.append(MJD)
 
 # Save the relative geometry for use in the other images
+print "Plotting geometry...",
 plot_geometry(da, cut_startable)
+print "Done!"
+print "Saving geometry...",
 geometry = save_geometry(cut_startable)
-
+print "Done!"
 for i, filename in enumerate(filenames):
+
+    set_number = ntpath.basename(filename)[7]
 
     # Load in the ith file in the directory
     da = fits.open(filename)[0].data
-
+    print "Data ", i, "loaded. Filename: ", filename
     # Photometer the ith file
+    print "Finding sources...",
     sources = star_find(da)
-    photometered = ap_phot(sources, da)
+    print "Done!"
+    print "Photometering sources...",
+    photometered = ap_phot(sources, da, plot=True)
+    print "Done!"
 
     # Match the geometry of the first image to the stars in this image, extract stars
+    print "Matching geometry...",
     cut_startable = match_geometry(geometry, photometered)
+    print "Done!"
 
     # Add relevant information to fits file arrays
     fits_filenames.append(ntpath.basename(filename))
     star1_apsums.append(cut_startable[0][3])
     star2_apsums.append(cut_startable[1][3])
     star3_apsums.append(cut_startable[2][3])
-    MJDs.append(extract_time(filename, filter_id))
+    MJDs.append(extract_time(filename, set_number, filter_id))
 
     plot_geometry(da, cut_startable)
 
 t = Table([fits_filenames, star1_apsums, star2_apsums, star3_apsums, MJDs], names=tuple(column_names))
-t.write('photometry_'+filter_id+'.fits', format='fits')
+t['MJD'].format = '%16e'
+t.write(cwd+'photometry_'+filter_id+'.fits', format='fits')
